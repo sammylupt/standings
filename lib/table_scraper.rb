@@ -8,7 +8,6 @@ class TableScraper
   end
  
   def call
-    threader
     site = Nokogiri::HTML(open(self.url))
     self.teams = site.css('.table-football-body tr')[3..-1]
     build_teams
@@ -26,6 +25,4 @@ class TableScraper
     end
   end
 
-  def threader
-  end
 end
