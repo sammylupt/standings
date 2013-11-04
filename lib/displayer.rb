@@ -1,15 +1,17 @@
 class Displayer
  
-  def call 
-    TableScraper.new.call
+  def initialize
     display_table
   end
  
   def template(team)
-    string = "#{(team.position).ljust(3," ")} #{team.played.ljust(3, " ")} #{team.points.ljust(5, " ")}"
-    if team.position.to_i <= 4
+    string = "#{(team.position).ljust(3," ")} #{team.played.ljust(3, " ")} #{team.points.to_s.ljust(5, " ")}"
+
+    if team.top?
       string += team.name.green
-    elsif team.position.to_i >= 18
+    elsif team.middle?
+      string += team.name.light_blue
+    elsif team.bottom?
       string += team.name.red
     else
       string += team.name
@@ -21,7 +23,7 @@ class Displayer
     puts "-" * 28
     puts "#   P  Pts   Team"
     puts "-" * 28
-    Team.all.each { |team| template(team)  } 
+    League.all.each { |team| template(team)  } 
   end
- 
+
 end

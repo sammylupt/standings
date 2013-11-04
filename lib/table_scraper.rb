@@ -2,13 +2,15 @@ class TableScraper
  
   attr_accessor :url, :teams
  
-  def initialize
-    @url = "http://www.theguardian.com/football/premierleague/table"
+  def initialize(league)
+    @url = "http://www.theguardian.com/football/" + league + "/table"
+    call
   end
  
   def call
     site = Nokogiri::HTML(open(self.url))
     self.teams = site.css('.table-football-body tr')[3..-1]
+    #binding.pry
     build_teams
   end
 
