@@ -1,20 +1,20 @@
 class Displayer
  
-  def initialize
+  def call
     display_table
   end
  
   def template(team)
-    string = "#{(team.position).ljust(3," ")} #{team.played.ljust(3, " ")} #{team.points.to_s.ljust(5, " ")}"
+    output = "#{(team.position).ljust(3," ")} #{team.played.ljust(3, " ")} #{team.points.to_s.ljust(5, " ")}"
 
     if team.top?
-      string += team.name.green
+      output += team.name.green
     elsif team.middle?
-      string += team.name.light_blue
+      output += team.name.light_blue
     elsif team.bottom?
-      string += team.name.red
+      output += team.name.red
     else
-      string += team.name
+      output += team.name
     end
 
   end
@@ -28,7 +28,7 @@ class Displayer
   end
 
   def dashes_for_display_table
-    # draw enough dashes so that teams with long names are still covered by the dashes. Given a team length integer, add it to 17 (the length of line 25)
+    # draw enough dashes so that teams with long names are still covered by the dashes. Given a team length integer, add it to 17 (the length of the static puts statement in #display_table)
     "-" * (17 + League.get_longest_team_name_length)
   end
 
