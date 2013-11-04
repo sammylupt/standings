@@ -1,62 +1,62 @@
 class League
   class << self
-    attr_accessor :league_symbol, :league_full_name, :top_teams, :middle_teams, :bottom_teams
-  end
-
-  @@all = []
-
-  def self.all
-    @@all
-  end
-
-  def self.team_count
-    all.length
+    attr_accessor :league_symbol, :league_full_name, :top_teams, :middle_teams, :bottom_teams, :longest_team_name_length
   end
 
   LeaguesHash = {
     :epl => {
-      :fullname => "premierleague",
-      :topteams => 4,
-      :middleteams => 5,
-      :bottomteams => 3
+      :full_name => "premierleague",
+      :top_teams => 4,
+      :middle_teams => 5,
+      :bottom_teams => 3
     },
     :championship => {
-      :fullname => "championship",
-      :topteams => 2,
-      :middleteams => 6,
-      :bottomteams => 3
+      :full_name => "championship",
+      :top_teams => 2,
+      :middle_teams => 6,
+      :bottom_teams => 3
     },
     :spl => {
-      :fullname => "scottishpremierleague",
-      :topteams => 1,
-      :middleteams => 3,
-      :bottomteams => 2
+      :full_name => "scottishpremierleague",
+      :top_teams => 1,
+      :middle_teams => 3,
+      :bottom_teams => 2
     },
     :liga => {
-      :fullname => "laligafootball",
-      :topteams => 3,
-      :middleteams => 6,
-      :bottomteams => 3
+      :full_name => "laligafootball",
+      :top_teams => 3,
+      :middle_teams => 6,
+      :bottom_teams => 3
     },
     :ligue => {
-      :fullname => "ligue1football",
-      :topteams => 3,
-      :middleteams => 4,
-      :bottomteams => 3
+      :full_name => "ligue1football",
+      :top_teams => 3,
+      :middle_teams => 4,
+      :bottom_teams => 3
     },
     :seriea => {
-      :fullname => "serieafootball",
-      :topteams => 3,
-      :middleteams => 5,
-      :bottomteams => 3
+      :full_name => "serieafootball",
+      :top_teams => 3,
+      :middle_teams => 5,
+      :bottom_teams => 3
     },
     :bundesliga => {
-      :fullname => "bundesligafootball",
-      :topteams => 4,
-      :middleteams => 6,
-      :bottomteams => 3
+      :full_name => "bundesligafootball",
+      :top_teams => 4,
+      :middle_teams => 6,
+      :bottom_teams => 3
     }
   }
+
+  @@teams = []
+
+  def self.teams
+    @@teams
+  end
+
+  def self.team_count
+    teams.length
+  end
 
   def self.set_league_info(league_selection)
     self.league_symbol = league_selection
@@ -67,18 +67,22 @@ class League
   end
 
   def self.set_league_full_name
-    self.league_full_name = League::LeaguesHash[league_symbol][:fullname]
+    self.league_full_name = League::LeaguesHash[league_symbol][:full_name]
   end
 
   def self.set_top_teams
-    self.top_teams = League::LeaguesHash[league_symbol][:topteams]
+    self.top_teams = League::LeaguesHash[league_symbol][:top_teams]
   end
 
   def self.set_middle_teams
-    self.middle_teams = League::LeaguesHash[league_symbol][:middleteams]
+    self.middle_teams = League::LeaguesHash[league_symbol][:middle_teams]
   end
 
   def self.set_bottom_teams
-    self.bottom_teams = League::LeaguesHash[league_symbol][:bottomteams]
+    self.bottom_teams = League::LeaguesHash[league_symbol][:bottom_teams]
+  end
+
+  def self.get_longest_team_name_length
+    self.longest_team_name_length ||= self.teams.sort_by {|t| t.name.length }.last.name.length
   end
 end

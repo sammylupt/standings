@@ -15,7 +15,7 @@ end
 league_selection = opts.keys.detect { |k| opts[k] }
 
 if !league_selection
-  puts "Enter in a command!"
+  puts "You must enter in a command. Run with --help for help."
 else
   League.set_league_info(league_selection)
   TableScraper.new(League::league_full_name)

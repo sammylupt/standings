@@ -1,21 +1,14 @@
 class Team
   attr_accessor :name, :position, :played, :points
- 
-  @@teams = []
- 
+  
   def initialize(info)
     @name = info[:name]
     @played = info[:played]
     @points = info[:points]
     @position = info[:position]
-    @@teams << self
-    League.all << self
+    League.teams << self
   end
  
-  def self.all
-    @@teams
-  end
-
   def top?
     self.position.to_i <= League.top_teams
   end

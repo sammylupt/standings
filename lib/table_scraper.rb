@@ -8,9 +8,9 @@ class TableScraper
   end
  
   def call
+    threader
     site = Nokogiri::HTML(open(self.url))
     self.teams = site.css('.table-football-body tr')[3..-1]
-    #binding.pry
     build_teams
   end
 
@@ -24,5 +24,8 @@ class TableScraper
         :position => source[0].children.text
       })
     end
+  end
+
+  def threader
   end
 end
