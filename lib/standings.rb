@@ -6,7 +6,7 @@ opts = Trollop::options do
   version <<-EOS
 
 ⚽  Standings 
-Version 0.2.0 | November 2013
+Version 0.2.2 | November 2013
 Scott Luptowski | @scottluptowski
 
 EOS
@@ -29,7 +29,7 @@ end
 league_selection = opts.keys.detect { |k| opts[k] }
 
 unless !league_selection
-  League.set_league_info(league_selection)
+  LeagueReference.set_league_info(league_selection)
   TableScraper.new.call
   Displayer.new.call
 else 

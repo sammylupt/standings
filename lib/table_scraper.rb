@@ -3,7 +3,7 @@ class TableScraper
   attr_accessor :url, :teams
  
   def initialize
-    @url = "http://www.theguardian.com/football/" + League::league_full_name + "/table"
+    @url = "http://www.theguardian.com/football/" + LeagueReference::league_full_name + "/table"
   end
  
   def call
