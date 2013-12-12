@@ -50,7 +50,7 @@ class LeagueReference
 
   def self.set_league_info(league_selection)
     self.league_symbol = league_selection
-    ["league_full_name", "top_teams", "middle_teams", "bottom_teams"].each do |attr|
+    %w(league_full_name top_teams middle_teams bottom_teams).each do |attr|
       self.send("#{attr}=", LeaguesHash[league_symbol][attr.to_sym])
     end
   end

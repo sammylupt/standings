@@ -36,7 +36,7 @@ class Team
   end
  
   def self.get_longest_team_name_length
-    self.longest_team_name_length ||= self.teams.sort_by {|t| t.name.length }.last.name.length
+    @longest_team_name_length ||= self.teams.sort_by {|t| t.name.length }.last.name.length
   end
  
 end

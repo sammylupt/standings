@@ -27,7 +27,9 @@ class Displayer
   end
 
   def dashes_for_display_table
-    # draw enough dashes so that teams with long names are still covered by the dashes. Given a team length integer, add it to 17 (the length of the static puts statement in #display_table)
+    # draw enough dashes so that teams with long names are still covered 
+    #by the dashes. Given a team length integer, add it to 17 
+    #(the length of the static puts statement in #display_table)
     "-" * (17 + Team.get_longest_team_name_length)
   end
 
