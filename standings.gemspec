@@ -1,8 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'standings'
-  s.version     = '0.2.4'
+  s.version     = '0.2.5'
   s.executables << 'standings'
-  s.date        = '2010-12-12'
   s.summary     = "football/soccer standings"
   s.description = "View European football/soccer standings from your terminal. Currently supports Premier League, Scottish Premier League, La Liga, Ligue 1, Serie A, and Bundesliga"
   s.authors     = ["Scott Luptowski"]

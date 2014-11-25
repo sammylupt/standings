@@ -6,7 +6,7 @@ opts = Trollop::options do
   version <<-EOS
 
 ⚽  Standings 
-Version 0.2.4 | December 2013
+Version 0.2.5 | November 2014
 Scott Luptowski | @scottluptowski
 
 EOS
