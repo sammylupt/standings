@@ -1,5 +1,5 @@
 module Standings
-  class TableScraper
+  class TableFetcher
     class FetchError < StandardError; end
     class ParseError < StandardError; end
 

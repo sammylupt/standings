@@ -38,9 +38,9 @@ module Standings
 
     def handle_valid_league_selection(league_selection)
       begin
-        results = TableScraper.new(league_selection).call
+        results = TableFetcher.new(league_selection).call
         Displayer.new(results).display_table
-      rescue TableScraper::FetchError, TableScraper::ParseError
+      rescue TableFetcher::FetchError, TableFetcher::ParseError
         handle_failure
       end
     end
