@@ -1,6 +1,6 @@
 module Standings
   class CLI
-    def initialize
+    def record_user_selection_and_show_results!
       league_selection = accept_input
 
       if league_selection
@@ -10,15 +10,17 @@ module Standings
       end
     end
 
+    private
+    
     def accept_input
       opts = Trollop::options do
         version <<-EOS
       ⚽  Standings
-      Version 0.2.5 | November 2014
+      Version 1.0 | September 2016
       Scott Luptowski | @scottluptowski
       EOS
         banner <<-EOS
-      \n⚽  Standings is a command line gem which lets users check the current standings in a number of European football/soccer leagues. The data is scraped and thus subject to availability.
+      \n⚽  Standings is a command line gem which lets users check the current standings in a number of European football/soccer leagues.
       Usage:
       \n
       EOS

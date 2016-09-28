@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-# require 'standings'
-require_relative '../config/environment.rb'
-Standings::CLI.new
+require 'standings'
+Standings::CLI.new.record_user_selection_and_show_results!

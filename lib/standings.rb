@@ -1,0 +1,11 @@
+require 'nokogiri'
+require 'open-uri'
+require 'colorize'
+require 'trollop'
+require 'ostruct'
+
+require_relative './cli.rb'
+require_relative './displayer.rb'
+require_relative './league_reference.rb'
+require_relative './league_results.rb'
+require_relative './table_fetcher.rb'
