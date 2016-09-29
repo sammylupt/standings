@@ -7,16 +7,16 @@ module Standings
     end
 
     def display_table
-      puts dashes_for_display_table
+      puts dividing_line
       puts "#   GP  Pts  W    D    L   Team"
-      puts dashes_for_display_table
+      puts dividing_line
 
       results.teams.each do |team|
         puts template(team)
         sleep 0.01
       end
 
-      puts dashes_for_display_table
+      puts dividing_line
     end
 
     def template(team)
@@ -41,7 +41,7 @@ module Standings
 
     private
 
-    def dashes_for_display_table
+    def dividing_line
       # draw enough dashes so that teams with long names are still covered
       # by the dashes. Given a team length integer, add it to 31
       # (the length of the static puts statement in #display_table)
