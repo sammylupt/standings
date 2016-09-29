@@ -60,7 +60,10 @@ module Standings
         position: team_info[0].to_i,
         name: team_info[1],
         played: team_info[2].to_i,
-        points: team_info[9].to_i
+        points: team_info[9].to_i,
+        wins: team_info[3].to_i,
+        draws: team_info[4].to_i,
+        losses: team_info[5].to_i
       })
     end
   end
